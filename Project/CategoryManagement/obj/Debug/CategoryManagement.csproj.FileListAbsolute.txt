@@ -1,0 +1,12 @@
+C:\Users\Hridoy\source\repos\Project\CategoryManagement\bin\Debug\CategoryManagement.dll
+C:\Users\Hridoy\source\repos\Project\CategoryManagement\bin\Debug\CategoryManagement.pdb
+C:\Users\Hridoy\source\repos\Project\CategoryManagement\obj\Debug\CategoryManagement.csprojAssemblyReference.cache
+C:\Users\Hridoy\source\repos\Project\CategoryManagement\obj\Debug\CategoryManagement.csproj.CoreCompileInputs.cache
+C:\Users\Hridoy\source\repos\Project\CategoryManagement\obj\Debug\CategoryManagement.dll
+C:\Users\Hridoy\source\repos\Project\CategoryManagement\obj\Debug\CategoryManagement.pdb
+D:\8th Semester\OOP2(C#)\Final Project(update)\Project\CategoryManagement\bin\Debug\CategoryManagement.dll
+D:\8th Semester\OOP2(C#)\Final Project(update)\Project\CategoryManagement\bin\Debug\CategoryManagement.pdb
+D:\8th Semester\OOP2(C#)\Final Project(update)\Project\CategoryManagement\obj\Debug\CategoryManagement.csproj.AssemblyReference.cache
+D:\8th Semester\OOP2(C#)\Final Project(update)\Project\CategoryManagement\obj\Debug\CategoryManagement.csproj.CoreCompileInputs.cache
+D:\8th Semester\OOP2(C#)\Final Project(update)\Project\CategoryManagement\obj\Debug\CategoryManagement.dll
+D:\8th Semester\OOP2(C#)\Final Project(update)\Project\CategoryManagement\obj\Debug\CategoryManagement.pdb
