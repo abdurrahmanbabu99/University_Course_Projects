@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="FundModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="raiser">
+          <Key>
+            <PropertyRef Name="raiserId" />
+          </Key>
+          <Property Name="raiserId" Type="int" Nullable="false" />
+          <Property Name="uId" Type="int" />
+          <Property Name="uName" Type="varchar" MaxLength="100" />
+          <Property Name="uraiseAmount" Type="varchar" MaxLength="50" />
+          <Property Name="uDescription" Type="varchar" MaxLength="5000" />
+          <Property Name="uAddress" Type="varchar" MaxLength="500" />
+          <Property Name="uEmail" Type="varchar" MaxLength="100" />
+          <Property Name="uMobile" Type="varchar" MaxLength="50" />
+          <Property Name="Date" Type="varchar" MaxLength="50" />
+          <Property Name="image" Type="image" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="users1">
+          <Key>
+            <PropertyRef Name="uId" />
+          </Key>
+          <Property Name="uId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="uName" Type="varchar" MaxLength="50" />
+          <Property Name="uUserName" Type="varchar" MaxLength="50" />
+          <Property Name="uEmail" Type="varchar" MaxLength="50" />
+          <Property Name="uGender" Type="varchar" MaxLength="50" />
+          <Property Name="uPassword" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <Association Name="FK_raiser_raiser">
+          <End Role="raiser" Type="Self.raiser" Multiplicity="1" />
+          <End Role="raiser1" Type="Self.raiser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="raiser">
+              <PropertyRef Name="raiserId" />
+            </Principal>
+            <Dependent Role="raiser1">
+              <PropertyRef Name="raiserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_raiser_users1">
+          <End Role="users1" Type="Self.users1" Multiplicity="0..1" />
+          <End Role="raiser" Type="Self.raiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users1">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="raiser">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users1_users1">
+          <End Role="users1" Type="Self.users1" Multiplicity="1" />
+          <End Role="users11" Type="Self.users1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users1">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="users11">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="FundModelStoreContainer">
+          <EntitySet Name="raiser" EntityType="Self.raiser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="users1" EntityType="Self.users1" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_raiser_raiser" Association="Self.FK_raiser_raiser">
+            <End Role="raiser" EntitySet="raiser" />
+            <End Role="raiser1" EntitySet="raiser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_raiser_users1" Association="Self.FK_raiser_users1">
+            <End Role="users1" EntitySet="users1" />
+            <End Role="raiser" EntitySet="raiser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users1_users1" Association="Self.FK_users1_users1">
+            <End Role="users1" EntitySet="users1" />
+            <End Role="users11" EntitySet="users1" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="FundModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="users1">
+          <Key>
+            <PropertyRef Name="uId" />
+          </Key>
+          <Property Name="uId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="uName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uUserName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uGender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="raiser" Relationship="FundModel.FK_raiser_users1" FromRole="users1" ToRole="raiser" />
+        </EntityType>
+        <EntityContainer Name="FundEntities1" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="users1" EntityType="Self.users1" />
+          <EntitySet Name="raisers" EntityType="FundModel.raiser" />
+          <AssociationSet Name="FK_raisers_users11" Association="FundModel.FK_raisers_users11">
+            <End Role="users1" EntitySet="users1" />
+            <End Role="raiser" EntitySet="raisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_raiser_users1" Association="FundModel.FK_raiser_users1">
+            <End Role="users1" EntitySet="users1" />
+            <End Role="raiser" EntitySet="raisers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_users1_users1" Association="FundModel.FK_users1_users1">
+            <End Role="users1" EntitySet="users1" />
+            <End Role="users11" EntitySet="users1" />
+          </AssociationSet>
+          <AssociationSet Name="FK_raiser_raiser" Association="FundModel.FK_raiser_raiser">
+            <End Role="raiser" EntitySet="raisers" />
+            <End Role="raiser1" EntitySet="raisers" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="raiser">
+          <Key>
+            <PropertyRef Name="raiserId" />
+          </Key>
+          <Property Name="raiserId" Type="Int32" Nullable="false" />
+          <Property Name="uId" Type="Int32" />
+          <Property Name="uName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="uraiseAmount" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="uDescription" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+          <Property Name="uAddress" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="uEmail" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="uMobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="image" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="users1" Relationship="FundModel.FK_raisers_users11" FromRole="raiser" ToRole="users1" />
+          <NavigationProperty Name="raiser1" Relationship="FundModel.FK_raiser_raiser" FromRole="raiser" ToRole="raiser1" />
+        </EntityType>
+        <Association Name="FK_raisers_users11">
+          <End Type="FundModel.users1" Role="users1" Multiplicity="0..1" />
+          <End Type="FundModel.raiser" Role="raiser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="users1">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="raiser">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_raiser_users1">
+          <End Type="FundModel.users1" Role="users1" Multiplicity="1" />
+          <End Type="FundModel.raiser" Role="raiser" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users1">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="raiser">
+              <PropertyRef Name="raiserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_users1_users1">
+          <End Type="FundModel.users1" Role="users1" Multiplicity="1" />
+          <End Type="FundModel.users1" Role="users11" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="users1">
+              <PropertyRef Name="uId" />
+            </Principal>
+            <Dependent Role="users11">
+              <PropertyRef Name="uId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_raiser_raiser">
+          <End Type="FundModel.raiser" Role="raiser" Multiplicity="1" />
+          <End Type="FundModel.raiser" Role="raiser1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="raiser">
+              <PropertyRef Name="raiserId" />
+            </Principal>
+            <Dependent Role="raiser1">
+              <PropertyRef Name="raiserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="FundModelStoreContainer" CdmEntityContainer="FundEntities1">
+          <EntitySetMapping Name="users1">
+            <EntityTypeMapping TypeName="FundModel.users1">
+              <MappingFragment StoreEntitySet="users1">
+                <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="uName" ColumnName="uName" />
+                <ScalarProperty Name="uUserName" ColumnName="uUserName" />
+                <ScalarProperty Name="uEmail" ColumnName="uEmail" />
+                <ScalarProperty Name="uGender" ColumnName="uGender" />
+                <ScalarProperty Name="uPassword" ColumnName="uPassword" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="raisers">
+            <EntityTypeMapping TypeName="FundModel.raiser">
+              <MappingFragment StoreEntitySet="raiser">
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="image" ColumnName="image" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="uMobile" ColumnName="uMobile" />
+                <ScalarProperty Name="uEmail" ColumnName="uEmail" />
+                <ScalarProperty Name="uAddress" ColumnName="uAddress" />
+                <ScalarProperty Name="uDescription" ColumnName="uDescription" />
+                <ScalarProperty Name="uraiseAmount" ColumnName="uraiseAmount" />
+                <ScalarProperty Name="uName" ColumnName="uName" />
+                <ScalarProperty Name="uId" ColumnName="uId" />
+                <ScalarProperty Name="raiserId" ColumnName="raiserId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

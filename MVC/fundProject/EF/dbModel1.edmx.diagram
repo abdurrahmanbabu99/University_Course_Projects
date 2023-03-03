@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="80a18e8c8ddd4eb1b704faa6fff55a13" Name="Diagram1">
+        <EntityTypeShape EntityType="FundModel.users1" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FundModel.raiser" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="FundModel.FK_raisers_users11" />
+        <AssociationConnector Association="FundModel.FK_raiser_users1" />
+        <AssociationConnector Association="FundModel.FK_users1_users1" />
+        <AssociationConnector Association="FundModel.FK_raiser_raiser" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

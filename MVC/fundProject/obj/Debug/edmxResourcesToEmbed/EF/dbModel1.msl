@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="FundModelStoreContainer" CdmEntityContainer="FundEntities1">
+    <EntitySetMapping Name="users1">
+      <EntityTypeMapping TypeName="FundModel.users1">
+        <MappingFragment StoreEntitySet="users1">
+          <ScalarProperty Name="uId" ColumnName="uId" />
+          <ScalarProperty Name="uName" ColumnName="uName" />
+          <ScalarProperty Name="uUserName" ColumnName="uUserName" />
+          <ScalarProperty Name="uEmail" ColumnName="uEmail" />
+          <ScalarProperty Name="uGender" ColumnName="uGender" />
+          <ScalarProperty Name="uPassword" ColumnName="uPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="raisers">
+      <EntityTypeMapping TypeName="FundModel.raiser">
+        <MappingFragment StoreEntitySet="raiser">
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="image" ColumnName="image" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="uMobile" ColumnName="uMobile" />
+          <ScalarProperty Name="uEmail" ColumnName="uEmail" />
+          <ScalarProperty Name="uAddress" ColumnName="uAddress" />
+          <ScalarProperty Name="uDescription" ColumnName="uDescription" />
+          <ScalarProperty Name="uraiseAmount" ColumnName="uraiseAmount" />
+          <ScalarProperty Name="uName" ColumnName="uName" />
+          <ScalarProperty Name="uId" ColumnName="uId" />
+          <ScalarProperty Name="raiserId" ColumnName="raiserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
